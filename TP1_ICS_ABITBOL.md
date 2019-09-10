@@ -252,7 +252,7 @@ L'invite de commande passe en couleur. Le nom de mon dossier personnel "abitbol@
 
 afin qu'elle devienne comme suit et intégre les modifications citées précèdemments :
 
->`\[\e[35m\A\e[0m:\[\033[1;32m]\u@\h\[\033[00m\] `
+>`\[\e[35m\A\e[0m-\[\033[1;32m]\u@\h\[\033[00m\] `
 
 
 
