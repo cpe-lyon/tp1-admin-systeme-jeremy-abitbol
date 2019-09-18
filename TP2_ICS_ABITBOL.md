@@ -169,8 +169,8 @@ Voici le code effectué pour le contrôle d'utilisateur:
 #!/bin/bash
 function is_number()
 {
-    re='^[+-]?[0-9]+([.][0-9]+)?$
-    if ! [[ $S1 =~ $re ]]; then
+    re='^[+-]?[0-9]+([.][0-9]+)?$'
+    if ! [[ $1 =~ $re ]]; then
         return 1
     else
         return 0
@@ -237,7 +237,7 @@ La commande suivante permet la création du fichier :
 
 Il faut rendre le script exécutable via la commande :
 
->`chmod u+x facto.shh`
+>`chmod u+x facto.sh`
 
 La commande suivante permet de rentrer dans nano :
 
@@ -266,5 +266,56 @@ Le mot parametre entre étoile est le paramètre que prend le script. Cela me pe
 ### Exercice 6. Le juste prix
 
 Écrivez un script qui génère un nombre aléatoire entre 1 et 1000 et demande à l’utilisateur de le deviner. Le programme écrira ”C’est plus!”, ”C’est moins!” ou ”Gagné!” selon les cas (vous utiliserez $RANDOM).
+
+
+La commande suivante permet la création du fichier :
+
+>`touch juste_prix.sh`
+
+Il faut rendre le script exécutable via la commande :
+
+>`chmod u+x juste_prix.sh`
+
+La commande suivante permet de rentrer dans nano :
+
+>`nano juste_prix.sh`
+
+Voici le code effectué pour le contrôle d'utilisateur:
+<pre>
+#!/bin/bash
+
+echelle=1000
+randomnumber=$RAMDOM
+
+let "randomnumber %= $echelle"
+
+echo "Veuillez saisir un nombre aléatoire entre 1 et 1000"
+read number
+
+while [ $number -ne $randomnumber ]
+do
+    if [ $number -lt $randomnumber ]; then
+        echo "C'est plus !"
+    elif [$number -gt $randomnumber ]; then
+        echo "C'est moins !"
+    fi
+
+echo "Veuillez saisir un aujtre nombre"
+read newnumber
+number=$newnumber
+
+done
+
+if [ $number -eq $randomnumber ]; then
+    echo "C'est gagné !"
+fi
+</pre>
+
+Avec la ligne de commande suivante je peux lancer le script :
+>`./juste-prix.sh`
+
+Cela me permet de vérifier si monde script fonctionne.
+
+### Exercice 7. Statistiques 
 
 
